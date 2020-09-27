@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { ToolsService } from './tools.service';
 
 @Controller('tools')
-export class ToolsController {}
+export class ToolsController {
+
+    constructor(private readonly toolsService: ToolsService) {}
+
+  @Get()
+  getHello(): string {
+    return this.toolsService.getTools();
+  }
+}
